@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: votingapp-service
+spec:
+  selector:
+    app: votingapp
+  ports:
+    - port: 80
