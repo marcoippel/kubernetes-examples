@@ -1,8 +1,3 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: ingress
---- 
 apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
@@ -38,10 +33,10 @@ spec:
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: tls-secret-prod
+  name: tls-secret
   namespace: ingress
 spec:
-  secretName: tls-secret-prod
+  secretName: tls-secret
   dnsNames:
   - ippel-aks-ingress.northeurope.cloudapp.azure.com
   acme:
@@ -61,13 +56,13 @@ metadata:
   namespace: ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
     - ippel-aks-ingress.northeurope.cloudapp.azure.com
-    secretName: tls-secret-prod
+    secretName: tls-secret
   rules:
   - host: ippel-aks-ingress.northeurope.cloudapp.azure.com 
     http:
