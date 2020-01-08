@@ -11,7 +11,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: marco@ippelsoft.nl
+    email: YOUR EMAILADDRESS
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:

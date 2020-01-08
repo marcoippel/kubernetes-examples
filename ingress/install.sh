@@ -10,7 +10,7 @@ helm install stable/nginx-ingress \
     --set controller.replicaCount=1 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.service.loadBalancerIP="40.127.150.91" \
+    --set controller.service.loadBalancerIP="{YOUR CLUSTER IPADDRESS}" \
     --generate-name
 
 # Install the CustomResourceDefinition resources separately
