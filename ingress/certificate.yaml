@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: tls-secret-prod
+  namespace: ingress
+spec:
+  secretName: tls-secret-prod
+  dnsNames:
+  - ippel-aks-ingress.northeurope.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - ippel-aks-ingress.northeurope.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
