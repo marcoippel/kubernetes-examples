@@ -22,7 +22,6 @@ spec:
           serviceName: wordpress
           servicePort: 80
         path: /
----
 apiVersion: v1
 data:
   password: d2Vsa29tMDE=
