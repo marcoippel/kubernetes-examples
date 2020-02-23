@@ -1,0 +1,1 @@
+Dashboard => az aks browse --resource-group myResourceGroup --name myAKSCluster

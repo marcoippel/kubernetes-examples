@@ -6,12 +6,12 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Install the nginx ingress controller
 helm install stable/nginx-ingress \
-    --namespace ingress \
+    --namespace wordpress \
     --set controller.replicaCount=1 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.service.loadBalancerIP="YOUR CLUSTER IPADDRESS" \
-    --generate-name
+    --set controller.service.loadBalancerIP="104.45.69.115" \
+    ingress-demo
 
 # Install the CustomResourceDefinition resources separately
 kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.11/deploy/manifests/00-crds.yaml
