@@ -61,10 +61,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - ippel-aks-ingress.northeurope.cloudapp.azure.com
+    - kubernetes-demo.westeurope.cloudapp.azure.com
     secretName: tls-secret
   rules:
-  - host: ippel-aks-ingress.northeurope.cloudapp.azure.com 
+  - host: kubernetes-demo.westeurope.cloudapp.azure.com 
     http:
       paths:
       - backend:
