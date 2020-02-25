@@ -1,3 +1,0 @@
-namespace: wordpress
-host: demo-kubernetes.westeurope.cloudapp.azure.com
-mysqlPass: d2Vsa29tMDE=

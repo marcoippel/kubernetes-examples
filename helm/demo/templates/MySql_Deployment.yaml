@@ -4,7 +4,6 @@ metadata:
   name: wordpress-mysql
   labels:
     app: wordpress
-  namespace: wordpress
 spec:
   selector:
     matchLabels:
