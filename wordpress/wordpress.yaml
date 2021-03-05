@@ -8,8 +8,8 @@ status: {}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: demo 
-  
+  name: demo
+
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
@@ -28,7 +28,7 @@ data:
 kind: Secret
 metadata:
   name: mysql-pass
-  
+
 ---
 apiVersion: v1
 kind: Service
@@ -36,7 +36,7 @@ metadata:
   name: wordpress-mysql
   labels:
     app: wordpress
-  
+
 spec:
   ports:
     - port: 3306
@@ -50,10 +50,11 @@ metadata:
   name: mysql-pv-claim
   labels:
     app: wordpress
-  
+
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: default
   resources:
     requests:
       storage: 20Gi
@@ -64,7 +65,7 @@ metadata:
   name: wordpress-mysql
   labels:
     app: wordpress
-  
+
 spec:
   selector:
     matchLabels:
@@ -104,7 +105,7 @@ metadata:
   name: wordpress
   labels:
     app: wordpress
-  
+
 spec:
   ports:
     - port: 80
@@ -118,10 +119,11 @@ metadata:
   name: wp-pv-claim
   labels:
     app: wordpress
-  
+
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: azurefile
   resources:
     requests:
       storage: 20Gi
@@ -132,7 +134,7 @@ metadata:
   name: wordpress
   labels:
     app: wordpress
-  
+
 spec:
   selector:
     matchLabels:
@@ -147,7 +149,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: wordpress:5.3.2-apache
+      - image: wordpress:5.6.2-apache
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
